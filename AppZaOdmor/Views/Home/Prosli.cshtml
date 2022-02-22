@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Destinacije";
+}
+@using AppZaOdmor.Models.Classes
+<html>
+<head>
+    <style>
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: #409c78;
+        }
+
+            #look tr:hover {
+                background-color: seagreen;
+            }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body id="body">
+
+    <table id="look" class="table table-bordered">
+        <tr>
+            <th><a href="/Home/ProsliSortDatumPocetak">Polazak</a></th>
+            <th><a href="/Home/ProsliSortDatumKraj">Povratak</a></th>
+            <th>Slika</th>
+            <th><a href="/Home/ProsliSortNaziv">Naziv</a></th>
+
+        </tr>
+        @foreach (Aranzman a in ViewBag.Prosli.Values)
+        {
+            if (a.Obrisan == false && DateTime.Parse(a.DatumPocetka) < DateTime.Now)
+            {
+                <tr>
+                    <td>@a.DatumPocetka</td>
+                    <td>@a.DatumZavrsetka</td>
+                    <td><img src="~/Images/@a.Slika" style="height:100px;width:100px" /></td>
+                    <td>@a.Naziv</td>
+                    <td><a href="/Home/ProsliDetaljno" style="color:#04062e;">Detaljnije</a></td>
+                </tr>
+            }
+
+        }
+    </table>   
+
+
+</body>
+</html>

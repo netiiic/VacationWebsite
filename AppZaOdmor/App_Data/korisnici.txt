@@ -1,0 +1,8 @@
+1|admin1|admin1|Maja|admin1|Musko|maja@gmail.com|12/11/1998|ADMINISTRATOR|0|False
+2|admin2|admin2|admin|admin2|Zensko|admin2@gmail.com|12/11/1998|ADMINISTRATOR|0|False
+3|admin3|admin3|admin|admin3|Zensko|admin3@gmail.com|12/11/1998|ADMINISTRATOR|0|False
+4|ana|ana|Ana|Anic|Zensko|ana@gmail.com|12/08/1992|MENADZER|0|False
+5|aki|aki|Aleksa|Aleksic|Musko|aki@gmail.com|21/08/1985|TURISTA|3|False
+6|marko|marko|Marko|Markovic|Musko|marko@gmail.com|14/07/2020|MENADZER|0|False
+7|nina|nina|Nina|Maricic|Zensko|nina@gmail.com|11/09/1715|TURISTA|0|False
+8|ugi|ugi|Ugljesa|Maricic|Musko|ugi@gmail.com|23/08/1991|MENADZER|0|False

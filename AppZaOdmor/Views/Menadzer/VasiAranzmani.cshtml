@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Destinacije";
+}
+@using AppZaOdmor.Models.Classes
+<html>
+<head>
+    <style>
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: #409c78;
+        }
+
+            #look tr:hover {
+                background-color: seagreen;
+            }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body id="body">
+
+    <table id="look" class="table table-bordered">
+        <tr>
+            <th>Mogucnosti</th>
+            <th>Naziv</th>
+            <th>Tip Aranzmana</th>
+            <th>Tip prevoza</th>
+            <th>Lokacija</th>
+            <th>Datum pocetka</th>
+            <th>Datum povratka</th>
+            <th>Mesto nalazenja</th>
+            <th>Vreme nalazenja</th>
+            <th>Maksimalan broj putnika</th>
+            <th>Opis</th>
+            <th>Program</th>
+            <th>Poster</th>
+            <th>Obrisan</th>
+        </tr>
+        @foreach (Aranzman a in Model)
+        {
+            if((string)Session["menadzer"] == a.Menadzer)
+            {
+        <tr>
+            <td>
+                @if (a.Obrisan == false)
+                {
+                    <!--<a href="/Menadzer/IzmeniAranzman"><input type="text" name="id" value="@a.Id" hidden />Izmeni</a>-->
+                    <form method="get" action="~/Menadzer/IzmeniAranzman">
+                        <input type="text" name="id" value="@a.Id" hidden />
+                        <input type="submit" value="Izmeni" />
+                    </form>
+                    <form method="post" action="~/Menadzer/Obrisi">
+                        <input type="text" name="id" value="@a.Id" hidden />
+                        <input type="submit" value="Ukloni" />
+                    </form>
+                
+                    <form method="post" action="~/Home/Smestaj">
+                        <input type="text" name="id" value="@a.Id" hidden />
+                        <input type="submit" value="Smestaj" />
+                    </form>
+                 }
+            </td>
+                <td>@a.Naziv</td>
+                <td>@a.TipAranzmana</td>
+                <td>@a.TipPrevoza</td>
+                <td>@a.LokacijaPutovanja</td>
+                <td>@a.DatumPocetka</td>
+                <td>@a.DatumZavrsetka</td>
+                <td>@a.MestoNalazenja.Adresa.UlicaIBroj, @a.MestoNalazenja.Adresa.Mesto, @a.MestoNalazenja.Adresa.PostanskiBroj, @a.MestoNalazenja.GeografskaSirina, @a.MestoNalazenja.GeografskaDuzina</td>
+                <td>@a.VremeNalazenja</td>
+                <td>@a.MaxBrPutnika</td>
+                <td>@a.OpisAranzmana</td>
+                <td>@a.ProgramPutovanja</td>
+                <td><img src="~/Images/@a.Slika" style="height:100px;width:100px" /></td>
+                <td>@a.Obrisan</td>
+
+
+            </tr>
+            }
+
+        }
+    </table>
+
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+    <style>
+        #look {
+            width: 100%;
+            position: center;
+            background-color: paleturquoise;
+        }
+
+        #look1 {
+            background-color: turquoise;
+        }
+
+        #look tr:hover {
+            background-color: darksalmon;
+        }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body id="body">   
+    <div class="container">
+        <div class="page-header">
+            <div class="text-center text-info">
+                <h1 style="color:navy">Ulogujte se na postojeci nalog ili napravite novi</h1>
+            </div>
+            <div class="text-center text-info">
+                @ViewBag.Messagee
+            </div>
+        </div>
+    </div>
+
+    <div class="container" align="center" >
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="look1">
+                        <h3 class="panel-title">
+                            Unesite korisnicko ime i lozinku
+                        </h3>
+                    </div>
+                    <div class="panel-body" id="look">
+                        <form method="post" action="~/Home/Login">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <input type="text" name="kIme" placeholder="Korisnicko ime" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <input type="password" name="lozinka" placeholder="Lozinka" />
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4 col-md-offset-4">
+                                    <input type="submit" value="Prijavi se" class="btn btn-info btn-block" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <a href="~/Home/Registracija" style="color:navy; font-size:20px">Napravite novi nalog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

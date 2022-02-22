@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Destinacije";
+}
+@using AppZaOdmor.Models.Classes
+<html>
+<head>
+    <style>
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: #409c78;
+        }
+
+            #look tr:hover {
+                background-color: seagreen;
+            }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body id="body">    
+    <hr />
+    <table id="look" class="table table-bordered">
+        <tr>
+            <th>Broj gostiju</th>
+            <th>Dozvoljeni ljubimci</th>
+            <th>Cena</th>
+        </tr>
+        @foreach (Smestajna_jedinica j in ViewBag.SJedinice.Values)
+        {
+            if (j.IdSmestaj == ViewBag.Jedinica)
+            {
+                <tr>
+                    <td>@j.DozvoljenBrojGostiju</td>
+                    <td>@j.KucniLjubimci</td>
+                    <td>@j.Cena</td>
+                </tr>
+            }
+
+
+
+        }
+    </table>
+
+
+</body>
+</html>

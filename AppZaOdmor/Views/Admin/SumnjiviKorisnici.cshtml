@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Korisnici";
+}
+@using AppZaOdmor.Models.Classes
+<html>
+<head>
+    <style>
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: #409c78;
+        }
+
+            #look tr:hover {
+                background-color: seagreen;
+            }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body id="body">
+    <table id="look" class="table table-bordered">
+        <tr>
+            <th>Zabrani pristup</th>
+            <th>Korisnicko Ime</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Pol</th>
+            <th>Email</th>
+            <th>Datum Rodjenja</th>
+            <th>Uloga</th>
+            <th>Broj Otkazivanja</th>
+            <th>Obrisan</th>
+
+        </tr>
+        @foreach (Korisnik k in Model)
+        {
+            if (k.BrojOtkazivanja > 2 && k.Obrisan != true)
+            {
+        <tr>
+            <td>
+                <form method="post" action="~/Admin/SumnjiviKorisnici">
+                    <input type="text" name="kIme" value="@k.KorisnickoIme" hidden />
+                    <input type="submit" value="Zabrani pristup" />
+                </form>
+            </td>
+            <td>@k.KorisnickoIme</td>
+            <td>@k.Ime</td>
+            <td>@k.Prezime</td>
+            <td>@k.Pol</td>
+            <td>@k.Email</td>
+            <td>@k.DatumRodjenja</td>
+            <td>@k.Uloga</td>
+            <td>@k.BrojOtkazivanja</td>
+            <td>@k.Obrisan</td>
+
+        </tr>
+            }
+
+        }
+
+    </table>
+
+
+
+</body>
+</html>

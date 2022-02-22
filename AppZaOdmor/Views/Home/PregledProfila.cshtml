@@ -1,0 +1,83 @@
+﻿<html>
+<head>
+    <style>
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: #409c78;
+        }
+
+            #look tr:hover {
+                background-color: seagreen;
+            }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head >
+<body id="body">
+    <div class="container" align="center">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Vas profil
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-5" align="left">
+                                
+                                <p>Lozinka:</p>
+                                <hr />
+                                <p>Ime:</p>
+                                <hr />
+                                <p>Prezime:</p>
+                                <hr />
+                                <p>Pol:</p>
+                                <hr/>
+                                <p>Email:</p>
+                                <hr />
+                                <p>Datum rodjenja:</p>
+                            </div>
+                            <form method="post" action="/Home/PregledProfila">
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-1">
+
+                                        <input type="text" name="lozinka" value="@ViewBag.CurrentUser.Lozinka" />
+                                        <hr />
+                                        <input type="text" name="ime" value="@ViewBag.CurrentUser.Ime" />
+                                        <hr />
+                                        <input type="text" name="prezime" value="@ViewBag.CurrentUser.Prezime" />
+                                        <hr />
+                                        <select name="pol" class="form-control input-sm">
+                                            <option value="MUSKO">
+                                                Musko
+                                            </option>
+                                            <option value="ZENSKO">
+                                                Zensko
+                                            </option>
+                                        </select>
+                                        <hr />
+                                        <input type="text" name="email" value="@ViewBag.CurrentUser.Email" />
+                                        <hr />
+                                        <input type="date" name="datumRodjenja" value="@ViewBag.CurrentUser.DatumRodjenja" />
+                                        <hr />
+                                        <input type="text" name="KorisnickoIme" value="@ViewBag.CurrentUser.KorisnickoIme" hidden />
+                                        <input type="submit" value="Izmeni" class="btn btn-info btn-block" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

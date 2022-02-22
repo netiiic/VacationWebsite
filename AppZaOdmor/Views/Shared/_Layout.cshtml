@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Vacayyyy</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style type="text/css">
+        .navbar {
+            background-color: darkslategrey;
+        }
+
+        .dropdown {
+            opacity: 0;
+            position: absolute;
+            width: auto;
+            z-index: 11;
+            background-color: darkslategray;
+            display:block;
+            align-items: center;
+            justify-content: space-around;
+            height: auto;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            transform: translateX(20%);
+            transition: opacity .15s ease-out;
+            float:none;
+        }
+
+        .dropdown-item a {
+            width: 100%;
+            height: 100%;
+        }
+
+        .has-dropdown:focus-within .dropdown {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" style="float:right">
+                <ul class="nav navbar-nav">
+                    <li><a class="navbar-brand" href="/Home/Index">Destinacije</a></li>
+                    <li><a class="navbar-brand" href="/Home/Login">Login</a></li>
+                    @if (Session["korisnik"] != null)
+                    {
+                        <li class="nav-item has-dropdown">
+
+                            <a href="#" style="font-size:19px">Profil</a>
+
+                            <ul class="dropdown">
+                                <li class="dropdown-item">
+                                    <a href="/Home/PregledProfila">Vas profil</a>
+                                </li>
+                                @if (Session["admin"] != null)
+                                {
+                                    <li class="dropdown-item">
+                                        <a href="/Home/Registracija">Registruj menadzera</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="/Admin/Korisnici">Pregled korisnika</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="/Admin/SumnjiviKorisnici">Sumnjivi korisnici</a>
+                                    </li>
+                                }
+                                else if(Session["menadzer"] != null)
+                                {
+                                    <li class="dropdown-item">
+                                        <a href="/Menadzer/DodajAranzman">Napravi Aranzman</a>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a href="/Menadzer/VasiAranzmani">Vasi Aranzmani</a>
+                                    </li>
+                                }
+
+                            </ul>
+
+
+                        </li>
+                    }
+                    <li><a class="navbar-brand" href="/Home/Logout">Logout</a></li>
+                </ul>
+                
+                <!--<div class="dropdown" style="float:right">
+        <button class="navbar-brand">Mogucnosti</button>
+        <div class="dropdown-content">
+            <a class="navbar-brand" href="#">Nesto</a>
+            <a class="navbar-brand" href="#">Nesto1</a>
+            <a class="navbar-brand" href="#">Nesto2</a>
+        </div>
+    </div>-->
+            </div>          
+           
+        </div>
+    </div> 
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Antonina Maričić</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

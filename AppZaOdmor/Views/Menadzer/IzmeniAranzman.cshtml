@@ -1,0 +1,157 @@
+﻿<html>
+<head>
+    <style type="text/css">
+        #boreders {
+            border-radius: 5px;
+        }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: paleturquoise;
+        }
+
+        #look1 {
+            background-color: turquoise;
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="container" align="center">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            Izmenite
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-5" align="left">
+                                <p>Naziv:</p>
+                                <hr />
+                                <p>Tip aranzmana:</p>
+                                <hr />
+                                <p>Tip prevoza:</p>
+                                <hr />
+                                <p>Lokacija putovanja:</p>
+                                <hr />
+                                <p>Datum pocetka:</p>
+                                <hr />
+                                <p>Datum zavrsetka:</p>
+                                <hr />
+                                <p>Ulica i Broj mesta nalazenja:</p>
+                                <hr />
+                                <p>Mesto nalazenja:</p>
+                                <hr />
+                                <p>Postanski broj mesta nalazenja:</p>
+                                <hr />
+                                <p>GeoX mesta nalazenja:</p>
+                                <hr />
+                                <p>GeoY mesta nalazenja:</p>
+                                <hr />
+                                <p>Vreme nalazenja (HH:mm):</p>
+                                <hr />
+                                <p>Max br putnika:</p>
+                                <hr />
+                                <p>Opis:</p>
+                                <hr />
+                                <p>Program putovanja:</p>
+                                <hr />
+                                <p>Poster:</p>
+                                <hr />
+                                <p>Potvrda</p>
+                            </div>
+
+                            <form method="post" action="/Menadzer/IzmeniAranzman">
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-1">
+                                        <input value="ViewBag.ID" type="hidden" name="ID" />
+
+                                        <input id="boreders" type="text" name="naziv" placeholder="Naziv aranzmana" />
+                                        <hr />
+                                        <select id="boreders" name="tipAranzmana" class="form-control input-sm" placeholder="Tip aranzmana">
+                                            <option value="NocenjeSaDoruckom">
+                                                Nocenje sa doruckom
+                                            </option>
+                                            <option value="Polupansion">
+                                                Polupansion
+                                            </option>
+                                            <option value="PunPansion">
+                                                Pun Pansion
+                                            </option>
+                                            <option value="AllInclusive">
+                                                All Inclusive
+                                            </option>
+                                            <option value="NajamApartmana">
+                                                Najam Apartmana
+                                            </option>
+                                        </select>
+                                        <hr />
+                                        <select id="boreders" name="tipPrevoza" class="form-control input-sm" placeholder="Tip prevoza">
+                                            <option value="Autobus">
+                                                Autobus
+                                            </option>
+                                            <option value="Avion">
+                                                Avion
+                                            </option>
+                                            <option value="AutobusAvion">
+                                                Autobus i Avion
+                                            </option>
+                                            <option value="Individualan">
+                                                Individualan
+                                            </option>
+                                            <option value="Ostalo">
+                                                Ostalo
+                                            </option>
+                                        </select>
+                                        <hr />
+                                        <input id="boreders" type="text" name="lokacijaPutovanja" placeholder="Lokacija putovanja" />
+                                        <hr />
+                                        <input id="boreders" type="date" name="datumPocetka" placeholder="Datum pocetka" />
+                                        <hr />
+                                        <input id="boreders" type="date" name="datumZavrsetka" placeholder="Datum povratka" />
+                                        <hr />
+                                        <input id="boreders" type="text" name="mestoNalazenja.Adresa.ulicaIBroj" placeholder="Ulica i Broj" />
+                                        <hr />
+                                        <input id="boreders" type="text" name="mestoNalazenja.Adresa.mesto" placeholder="Mesto nalazenja" />
+                                        <hr />
+                                        <input id="boreders" type="text" name="mestoNalazenja.Adresa.postanskiBroj" placeholder="Postanski broj mesta nalazenja" />
+                                        <hr />
+                                        <input id="boreders" type="text" name="mestoNalazenja.geografskaDuzina" placeholder="GeoX mesta nalazenja" />
+                                        <hr />
+                                        <input id="boreders" type="text" name="mestoNalazenja.geografskaSirina" placeholder="GeoY mesta nalazenja" />
+                                        <hr />
+                                        <input id="boreders" type="text" name="vremeNalazenja" placeholder="Vreme nalazenja (HH:mm)" />
+                                        <hr />
+                                        <input id="boreders" type="text" name="maxBrPutnika" placeholder="Max broj putnika" />
+                                        <hr />
+                                        <input id="boreders" type="text" name="opisAranzmana" placeholder="Opis aranzmana" />
+                                        <hr />
+                                        <input id="boreders" type="text" name="programPutovanja" placeholder="Program putovanja" />
+                                        <hr />
+                                        <input id="boreders" type="file" name="slika" placeholder="Slika" accept="image/*" />
+                                        <hr />
+                                        <input type="text" name="Id" value="@TempData["Ar"]" hidden />
+                                        <input id="boreders" type="submit" value="Izmenite" class="btn btn-info btn-block" />
+                                    </div>
+                                </div>
+                            </form>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Korisnici";
+}
+@using AppZaOdmor.Models.Classes
+<html>
+<head>
+    <style>
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: #409c78;
+        }
+
+            #look tr:hover {
+                background-color: seagreen;
+            }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body id="body">
+
+    <form action="/Admin/Pretraga" method="get">
+        <div class="col-md-3">
+            <input size="30" style="height:35px" type="text" id="ime" name="ime" placeholder="Pretrazi po imenu">
+        </div>
+        <div class="col-md-3">
+            <input size="30" style="height:35px" type="text" id="prezime" name="prezime" placeholder="Pretrazi po prezimenu">
+        </div>
+        <div class="col-md-3">
+            <input size="30" style="height:35px" type="text" id="uloga" name="uloga" placeholder="Pretrazi po ulozi">
+        </div>
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-primary">Pretraži</button>
+        </div>
+    </form>
+    <hr/>
+    <table id="look" class="table table-bordered">
+        <tr>
+            <th>Korisnicko Ime</th>
+            <th><a href="~/Admin/SrIme">Ime</a></th>
+            <th><a href="/Admin/SPrezime">Prezime</a></th>
+            <th>Pol</th>
+            <th>Email</th>
+            <th>Datum Rodjenja</th>
+            <th><a href="/Admin/SUloga">Uloga</a></th>
+            <th>Broj Otkazivanja</th>
+            <th>Obrisan</th>
+        </tr>
+        @foreach (Korisnik k in ViewBag.Korisnici.Values)
+        {
+            <tr>
+                <td>@k.KorisnickoIme</td>
+                <td>@k.Ime</td>
+                <td>@k.Prezime</td>
+                <td>@k.Pol</td>
+                <td>@k.Email</td>
+                <td>@k.DatumRodjenja</td>
+                <td>@k.Uloga</td>
+                <td>@k.BrojOtkazivanja</td>
+                <td>@k.Obrisan</td>
+            </tr>
+        }
+
+    </table>
+
+
+
+
+</body>
+</html>

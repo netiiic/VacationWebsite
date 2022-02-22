@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Destinacije";
+}
+@using AppZaOdmor.Models.Classes
+<html>
+<head>
+    <style>
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: #409c78;
+        }
+
+            #look tr:hover {
+                background-color: seagreen;
+            }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body id="body">
+
+    <table id="look" class="table table-bordered">
+        <tr>
+            <th>Smestajna jedinica</th>
+            <th>Naziv</th>
+            <th>Tip Smestaja</th>
+            <th>Broj zvezdica</th>
+            <th>Bazen</th>
+            <th>Spa centar pocetka</th>
+            <th>Za invalide</th>
+            <th>Wifi</th>
+
+
+        </th>
+        @foreach (Aranzman a in Model)
+        {
+            if (a.Obrisan == false && DateTime.Parse(a.DatumPocetka) > DateTime.Now && a.Id == ViewBag.Smestaj)
+            {
+                <tr>
+                    <td><form method="post" action="~/Home/Jedinica">
+                        <input type="text" name="id" value="@a.Id" hidden />
+                        <input type="submit" value="Smestajna jedinica" />
+                        </form>
+                    </td>
+                    <td>@a.Smestaj.Naziv</td>
+                    <td>@a.Smestaj.TipSmestaja</td>
+                    <td>@a.Smestaj.BrojZvezdica</td>
+                    <td>@a.Smestaj.Bazen</td>
+                    <td>@a.Smestaj.SpaCentar</td>
+                    <td>@a.Smestaj.ZaInvalide</td>
+                    <td>@a.Smestaj.Wifi</td>
+                </tr>
+            }
+
+        }
+    </table>
+
+
+
+</body>
+</html>

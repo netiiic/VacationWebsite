@@ -1,0 +1,4 @@
+1|Tunis|Polupansion|Avion|Tunis|23/09/2021|07/10/2021|Trg 1|Novi Sad|21000|1234456|1234456|20:00|50|Sjajno|Poseta mesta|tunis.jpg|False|ana|Grand|Vila|0|False|True|False|True
+2|Kopaonik|Polupansion|Autobus|Kopaonik|09/01/2020|20/01/2020|Roda|Novi Sad|21000|1234456|1234456|11:00|30|Skijanje|Skijanje, dobra hrana|kopaonik.jpg|False|marko|Grand|Hotel|5|True|True|True|True
+3|Santorini|AllInclusive|Avion|Santorini|24/07/2022|28/07/2022|Trg 1|Novi Sad|21000|1234456|1234456|20:00|50|Vrh ponuda|Sve sto mozete zamisliti|santorini.jpg|False|marko|Tavago|Vila|0|True|True|False|True
+4|Egipat|Polupansion|AutobusAvion|Egipat|10/08/2021|23/09/2021|Cara Dusana 79|Novi Sad|21000|1234456|1234456|15:00|23|AKCIJA|Piramide, Sfinga...|egipat.jpg|False|ana|Aleksandar|Hotel|4|True|False|True|True

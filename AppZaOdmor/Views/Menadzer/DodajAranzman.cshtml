@@ -1,0 +1,204 @@
+﻿<html>
+<head>
+    <style type="text/css">
+        #boreders {
+            border-radius: 5px;
+        }
+
+        #body {
+            background-image: url("/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: paleturquoise;
+        }
+
+        #look1 {
+            background-color: turquoise;
+        }
+    </style>
+</head>
+<body id="body">
+
+
+
+
+    @if (ViewBag.Error != null)
+    {
+        @ViewBag.Error
+    }
+
+    <div class="container">
+        <div class="page-header">
+            <div class="text-center text-info">
+                <div>
+                    @ViewBag.Message
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container" align="center">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="look1">
+                        <h3 class="panel-title">
+                            Popunite polja
+                        </h3>
+                    </div>
+                    <div class="panel-body" id="look">
+                        <form method="post" action="/Menadzer/DodajAranzman">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <input id="boreders" type="text" name="naziv" placeholder="Naziv" />
+                                    <hr />
+                                    <select id="boreders" name="tipAranzmana" class="form-control input-sm">
+                                        <option value="NocenjeSaDoruckom">
+                                            Nocenje sa doruckom
+                                        </option>
+                                        <option value="Polupansion">
+                                            Polupansion
+                                        </option>
+                                        <option value="PunPansion">
+                                            Pun Pansion
+                                        </option>
+                                        <option value="AllInclusive">
+                                            All Inclusive
+                                        </option>
+                                        <option value="NajamApartmana">
+                                            Najam Apartmana
+                                        </option>
+                                    </select>
+                                    <hr />
+                                    <select id="boreders" name="tipPrevoza" class="form-control input-sm">
+                                        <option value="Autobus">
+                                            Autobus
+                                        </option>
+                                        <option value="Avion">
+                                            Avion
+                                        </option>
+                                        <option value="AutobusAvion">
+                                            Autobus i Avion
+                                        </option>
+                                        <option value="Individualan">
+                                            Individualan
+                                        </option>
+                                        <option value="Ostalo">
+                                            Ostalo
+                                        </option>
+                                    </select>
+                                    <hr />
+                                    <input id="boreders" type="text" name="lokacijaPutovanja" placeholder="LokacijaPutovanja" />
+                                    <hr />
+                                    <input id="boreders" type="date" name="datumPocetka" placeholder="DatumPocetka" />
+                                    <hr />
+                                    <input id="boreders" type="date" name="datumZavrsetka" placeholder="DatumZavrsetka" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="mestoNalazenja.Adresa.ulicaIBroj" placeholder="Ulica i Broj mesta nalazenja" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="mestoNalazenja.Adresa.mesto" placeholder="Mesto nalazenja" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="mestoNalazenja.Adresa.postanskiBroj" placeholder="Postanski broj mesta nalazenja" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="mestoNalazenja.geografskaDuzina" placeholder="GeoX mesta nalazenja" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="mestoNalazenja.geografskaSirina" placeholder="GeoY mesta nalazenja" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="vremeNalazenja" placeholder="Vreme nalazenja (HH:mm)" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="maxBrPutnika" placeholder="Max br putnika" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="opisAranzmana" placeholder="Opis" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="programPutovanja" placeholder="Program putovanja" />
+                                    <hr />
+                                    <input id="boreders" type="file" name="slika" placeholder="Slika" accept="image/*" />
+                                    <hr />
+                                    <input id="boreders" type="text" name="smestaj.Naziv" placeholder="Naziv smestaja" />
+                                    <hr />
+                                    <select id="boreders" name="smestaj.TipSmestaja" class="form-control input-sm">
+                                        <option value="Hotel">
+                                            Hotel
+                                        </option>
+                                        <option value="Motel">
+                                            Motel
+                                        </option>
+                                        <option value="Vila">
+                                            Vila
+                                        </option>
+                                    </select>
+                                    <hr />
+                                    <select id="boreders" name="smestaj.BrojZvezdica" class="form-control input-sm">
+                                        <option value="0">
+                                            0
+                                        </option>
+                                        <option value="1">
+                                            1
+                                        </option>
+                                        <option value="2">
+                                            2
+                                        </option>
+                                        <option value="3">
+                                            3
+                                        </option>
+                                        <option value="4">
+                                            4
+                                        </option>
+                                        <option value="5">
+                                            5
+                                        </option>
+                                    </select>
+                                    <hr />
+                                    <select id="boreders" name="smestaj.Bazen" class="form-control input-sm">
+                                        <option value="True">
+                                            Ima bazen
+                                        </option>
+                                        <option value="False">
+                                            Nema bazen
+                                        </option>
+                                    </select>
+                                    <hr />
+                                    <select id="boreders" name="smestaj.SpaCentar" class="form-control input-sm">
+                                        <option value="True">
+                                            Ima spa centar
+                                        </option>
+                                        <option value="False">
+                                            Nema spa centar
+                                        </option>
+                                    </select>
+                                    <hr />
+                                    <select id="boreders" name="smestaj.ZaInvalide" class="form-control input-sm">
+                                        <option value="True">
+                                            Za invalide
+                                        </option>
+                                        <option value="False">
+                                            Nije za invalide
+                                        </option>
+                                    </select>
+                                    <hr />
+                                    <select id="boreders" name="smestaj.Wifi" class="form-control input-sm">
+                                        <option value="True">
+                                            Ima wifi
+                                        </option>
+                                        <option value="False">
+                                            Nema wifi
+                                        </option>
+                                    </select>
+                                    <input id="boreders" type="submit" value="Dodajte" class="btn btn-info btn-block" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</body>
+</html>
+

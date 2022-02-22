@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Destinacije";
+}
+@using AppZaOdmor.Models.Classes
+<html>
+<head>
+    <style>
+
+        #look {
+            width: 100%;
+            position: center;
+            background-color: #409c78;
+        }
+
+            #look tr:hover {
+                background-color: seagreen;
+            }
+
+    #body { background-image: url("/background.jpg"); 
+            background-size: cover; background-repeat: no-repeat; }
+    </style>
+</head>
+<body id="body">
+    <form action="/Home/Pretraga" method="get">
+        <!--div class="col-md-3">
+        <input size="30" style="height:35px" type="datetime" id="donjapocetak" name="donjapocetak" placeholder="Min pocetak">
+    </div>
+    <div class="col-md-3">
+        <input size="30" style="height:35px" type="datetime" id="gornjapocetak" name="gornjapocetak" placeholder="Max pocetak">
+    </div>
+    <div class="col-md-3">
+        <input size="30" style="height:35px" type="datetime" id="donjakraj" name="donjakraj" placeholder="Min povratak">
+    </div>
+    <div class="col-md-3">
+        <input size="30" style="height:35px" type="datetime" id="gornjakraj" name="gornjakraj" placeholder="Max povratak">
+    </div>-->
+        
+        <div class="col-md-3">
+            <input size="30" style="height:35px" type="text" id="tipPrevoza" name="tipPrevoza" placeholder="Tip prevoza">
+        </div>
+        <div class="col-md-3">
+            <input size="30" style="height:35px" type="text" id="tipAranzmana" name="tipAranzmana" placeholder="Tip aranzmana">
+        </div>
+        <div class="col-md-3">
+            <input size="30" style="height:35px" type="text" id="naziv" name="naziv" placeholder="Naziv">
+        </div>
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-primary">Pretraži</button>
+        </div>
+    </form>
+    <hr/>
+    <table id="look" class="table table-bordered">
+        <tr>
+            <th><a href="/Home/BuduciSortDatumPocetak">Polazak</a></th>
+            <th><a href="/Home/BuduciSortDatumKraj">Povratak</a></th>
+            <th>Slika</th>
+            <th><a href="/Home/BuduciSortNaziv">Naziv</a></th>
+
+        </tr>
+        @foreach (Aranzman a in ViewBag.Buduci.Values)
+        {
+            if (a.Obrisan == false && DateTime.Parse(a.DatumPocetka) > DateTime.Now)
+            {
+                <tr>
+                    <td>@a.DatumPocetka</td>
+                    <td>@a.DatumZavrsetka</td>
+                    <td><img src="~/Images/@a.Slika" style="height:100px;width:100px" /></td>
+                    <td>@a.Naziv</td>
+                    <td><a href="/Home/Detaljno" style="color:#04062e;">Detaljnije</a></td>
+                </tr>
+            }
+
+        }
+    </table>
+    <a href="/Home/Prosli" style="color:#04062e;">Aranzmani koji su zapoceti</a>
+    
+
+</body>
+</html>
