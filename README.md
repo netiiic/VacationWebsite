@@ -1,3 +1,7 @@
-Website for travel agency. 
+# Description
 
-The project is done using APS.NET MVC technology.
+Website for a travel agency. 
+
+# Technology
+
+APS.NET MVC 5
